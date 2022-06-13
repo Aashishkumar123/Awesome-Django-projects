@@ -100,7 +100,3 @@ function changenightMode(){
     $('#day-mode').attr('class', 'd-block');
     $('#night-mode').attr('class', 'd-none');
 }
-
-function sum(){
-    
-}
