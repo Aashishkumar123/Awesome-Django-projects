@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #535C79;
+    font-family: 'Nunito', sans-serif;
+}
+
+.bg-success{
+    background-color: green;
+}
+
+.bg-warning{
+    background-color: yellow;
+}
+
+.bg-danger{
+    background-color: red;
+}
+.text-white{
+    color: white;
+}
+
+.d-none{
+    display: none;
+}
+
+.d-block{
+    display: block;
+}
+
+.main{
+    margin: 3rem auto 1rem auto;
+    padding: 2rem;
+    width: 600px;
+    border-radius: 0px;
+    background: #535C79;
+    box-shadow:  16px 16px 32px #4a526c,
+                -16px -16px 32px #5c6686;
+}
+
+.main .main-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+}
+.main .main-body{
+    padding-top: 2rem;
+}
+
+.main .main-body form input{
+    background-color: white;
+    border: none;
+    outline: none;
+    width: 25rem;
+    height: 3rem;
+    padding-left: 1rem;
+}
+
+.main .main-body form button{
+    color: white;
+    padding: 0.9rem 2rem;
+    cursor: pointer;
+}
+
+.main .list{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ .main .list .title input{
+    width: 24rem;
+    background-color: white;
+    border: none;
+    outline: none;
+    height: 2rem;
+    padding-left: 1rem;
+ }
+
+ .main .list .action-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+}
+
+.main .list .action-button button{
+    padding: 0.3rem 2rem;
+    cursor: pointer;
+}

@@ -1,0 +1,62 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Django app with Ajax</title>
+    
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+     <!-- Our project just needs Font Awesome Free's Solid + Brand files -->
+     <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+     <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+     <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="main">
+        <div class="main-head">
+            <span>Today Date - {{date}}</span>
+            <div id="day-mode">
+                <i class="fa-solid fa-sun" onclick="changedayMode()" style="cursor: pointer;"></i>
+            </div>
+            <div class="d-none" id="night-mode">
+                <i class="fa-solid fa-moon" onclick="changenightMode()" style="cursor: pointer;"></i>
+            </div>
+        </div>
+        <div class="main-body">
+            <form method="POST" id="submitList"> {%csrf_token%}
+                <input required type="text" id="title" placeholder="Add a list">
+                <button>Add item</button>
+            </form>
+        </div>
+        <br>
+        <hr>
+        <div id="list-items">
+            {% for list in lists %}
+            <div class="list" id="list{{list.id}}">
+                <div class="title">
+                    <input type="text" value="{{list.title}}" id="edit-title{{list.id}}" class="d-none">
+                    <span class="text-white" id="show-title{{list.id}}">{{list.title}}</span>
+                </div>
+                <div class="action-button" id="action-btn{{list.id}}">
+                    <button class="bg-success text-white" id="showEditbtn{{list.id}}" data="{{list.id}}" onclick="showEdit(this)"><i class="fa-solid fa-pen-to-square bg-success"></i></button>
+                    <button class="bg-danger text-white" id="delete-btn{{list.id}}" data="{{list.id}}" onclick="deleteList(this)"><i class="fa-solid fa-ban bg-danger"></i></button>
+                </div>
+                <div class="d-none" id="show-edit-action-btn{{list.id}}">
+                    <button class="bg-success text-white" style="padding-left:1.7rem;padding-right:1.7rem;" id="EditListbtn{{list.id}}" data="{{list.id}}" onclick="editList(this)"><i class="fa-solid fa-check bg-success"></i></button>
+                    <button class="bg-danger text-white" style="padding-left:1.7rem;padding-right:1.7rem;" id="close-edit-btn{{list.id}}" data="{{list.id}}" onclick="closeEdit(this)"><i class="fa-solid fa-xmark bg-danger"></i></button>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+    <!-- javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
